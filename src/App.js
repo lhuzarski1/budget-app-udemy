@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Navigation, Wrapper } from 'components';
+import { LoadingIndicator, Navigation, Wrapper, Button } from 'components';
 import GlobalStyles from 'index.css';
 import theme from 'utils/theme';
 
 function App() {
   const { i18n } = useTranslation();
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <GlobalStyles />
       <Router>
         <Navigation
@@ -20,8 +20,8 @@ function App() {
           ]}
           RightElement={
             <div>
-              <button onClick={() => i18n.changeLanguage('pl')}>pl</button>
-              <button onClick={() => i18n.changeLanguage('en')}>en</button>
+              <Button onClick={() => i18n.changeLanguage('pl')}>pl</Button>
+              <Button onClick={() => i18n.changeLanguage('en')}>en</Button>
             </div>
           }
         />
@@ -34,15 +34,17 @@ function App() {
           </Routes>
         </Wrapper>
       </Router>
-    </ThemeProvider>
+    </>
   );
 }
 
 function RootApp() {
   return (
-    <React.Suspense fallback="Loading....">
-      <App />
-    </React.Suspense>
+    <ThemeProvider theme={theme}>
+      <React.Suspense fallback={<LoadingIndicator />}>
+        <App />
+      </React.Suspense>
+    </ThemeProvider>
   );
 }
 
