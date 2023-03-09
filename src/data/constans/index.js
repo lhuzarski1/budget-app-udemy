@@ -1,6 +1,9 @@
 export * from './budget.constans';
 export * from './common.constans';
 
-export default {
-  LOADING_STATES,
+export const LOADING_STATES = {
+  INITIAL: 'INITIAL',
+  LOADING: 'LOADING',
+  LOADED: 'LOADED',
+  FAILED: 'FAILED',
 };
