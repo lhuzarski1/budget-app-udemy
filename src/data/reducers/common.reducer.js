@@ -7,7 +7,7 @@ import {
 } from '../constans/common.constans';
 
 const initialState = {
-  loadingState: {},
+  loadingState: null,
   allCategories: [],
 };
 

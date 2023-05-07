@@ -10,7 +10,7 @@ import {
 import { LOADING_STATES } from 'data/constans';
 
 const initialState = {
-  loadingState: {},
+  loadingState: null,
   budget: {},
   budgetCategories: [],
 };
